@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function SobrePage() {
   return (
     <main
@@ -30,12 +32,12 @@ export default function SobrePage() {
         <p className="text-base italic text-right mt-8">
           Produzido por Emilly Nogueira, Luise Uchôa, Victor Marcelo, João V. Ramos e Vinicius Rocha. — Informática 3.
         </p>
-        
-          <div className="text-center mt-4">
-            <a href="/" className="text-[#0A421C] font-semibold hover:underline">
-              ← Voltar para a Home
-            </a>
-          </div>
+
+        <div className="text-center mt-4">
+          <Link href="/" className="text-[#0A421C] font-semibold hover:underline">
+            ← Voltar para a Home
+          </Link>
+        </div>
 
       </div>
     </main>

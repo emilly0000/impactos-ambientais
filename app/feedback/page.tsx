@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function FeedbackPage() {
   const { data: session } = require("next-auth/react").useSession();
   const isLogged = !!session;
@@ -22,9 +24,9 @@ export default function FeedbackPage() {
         </header>
       ) : (
         <header className="flex justify-between items-center p-6 text-sm bg-[#14532d] shadow-md">
-          <a href="/">
+          <Link href="/">
             <img src="/logo (2).png" alt="Logo" width={50} height={50} />
-          </a>
+          </Link>
           <nav className="hidden md:flex space-x-4">
             <a href="/login">Login</a>
             <a href="/cadastro">Cadastro</a>

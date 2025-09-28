@@ -1,12 +1,20 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useState, useEffect, Suspense } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ResetPasswordPage() {
-  const search = useSearchParams();
+  const [searchParams, setSearchParams] = useState({ token: "", email: "" });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setSearchParams({
+      token: params.get("token") || "",
+      email: params.get("email") || "",
+    });
+  }, []);
+
+  const { token, email } = searchParams;
   const router = useRouter();
-  const token = search.get("token") || "";
-  const email = search.get("email") || "";
 
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState<null | "success" | "error" | "loading">(null);
@@ -37,14 +45,16 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <main className="...">
-      <form onSubmit={handleSubmit}>
-        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} required />
-        <button type="submit">Redefinir senha</button>
-      </form>
+    <Suspense fallback={<p>Carregando...</p>}>
+      <main className="...">
+        <form onSubmit={handleSubmit}>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <button type="submit">Redefinir senha</button>
+        </form>
 
-      {status === "success" && <p>Senha alterada com sucesso — você será redirecionado.</p>}
-      {status === "error" && <p>Erro ao resetar. Token inválido ou expirado.</p>}
-    </main>
+        {status === "success" && <p>Senha alterada com sucesso — você será redirecionado.</p>}
+        {status === "error" && <p>Erro ao resetar. Token inválido ou expirado.</p>}
+      </main>
+    </Suspense>
   );
 }

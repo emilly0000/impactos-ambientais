@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function CadastroPage() {
   const [name, setName] = useState("");
@@ -97,12 +98,12 @@ export default function CadastroPage() {
           </button>
 
           <div className="text-center mt-4">
-            <a
+            <Link
               href="/"
               className="text-[#0A421C] font-semibold hover:underline underline-offset-4"
             >
               ← Voltar para a Home
-            </a>
+            </Link>
           </div>
           <div className="text-center mt-2">
             <span className="text-sm text-[#0A421C]/80">
