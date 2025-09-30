@@ -40,7 +40,7 @@ export default function FeedbackPage() {
         <p className="text-lg text-[#0A421C]/80 mb-6 text-center">Sua opinião é muito importante para melhorarmos o site. Responda o formulário abaixo:</p>
         <div className="w-full flex justify-center">
           <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfDUMMYFORMURL/viewform?embedded=true"
+            src="https://forms.gle/TpSDzHgoA9KjYgX19"
             width="100%"
             height="600"
             frameBorder="0"
@@ -54,6 +54,7 @@ export default function FeedbackPage() {
         <div className="text-center mt-6">
           <a href={isLogged ? "/dashboard" : "/"} className="inline-block bg-[#0A421C] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#065732] transition">Voltar</a>
         </div>
+        <p className="text-lg text-[#0A421C]/80 mt-6 text-center">Todos os feedbacks são analisados pela nossa equipe. Agradecemos sua contribuição para tornar esta plataforma ainda melhor!</p>
       </div>
     </main>
   );
