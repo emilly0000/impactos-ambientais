@@ -11,7 +11,7 @@ export default function FeedbackPage() {
       {isLogged ? (
         <header className="fixed top-0 left-0 w-full bg-[#0A421C] text-white p-4 sm:p-6 shadow-md z-50 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <img src="/logo (2).png" alt="Logo" className="w-10 h-10" />
+            <img src="/logo.png" alt="Logo" className="w-10 h-10" />
             <span className="font-bold text-sm sm:text-base">Feedback</span>
           </div>
           <nav className="hidden md:flex space-x-4 items-center">
@@ -25,7 +25,7 @@ export default function FeedbackPage() {
       ) : (
         <header className="flex justify-between items-center p-6 text-sm bg-[#14532d] shadow-md">
           <Link href="/">
-            <img src="/logo (2).png" alt="Logo" width={50} height={50} />
+            <img src="/logo.png" alt="Logo" width={50} height={50} />
           </Link>
           <nav className="hidden md:flex space-x-4">
             <a href="/login">Login</a>

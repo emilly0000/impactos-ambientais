@@ -7,7 +7,7 @@ export default function Artigo3Page() {
     <main className="font-sans text-[#0A421C] bg-[#EAF6EA] min-h-[100vh]">
       <header className="fixed top-0 left-0 w-full bg-[#0A421C] text-white p-4 sm:p-6 shadow-md z-50 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <img src="/logo (2).png" alt="Logo" className="w-10 h-10" />
+          <img src="/logo.png" alt="Logo" className="w-10 h-10" />
           <span className="font-bold text-sm sm:text-base">Artigo Científico</span>
         </div>
         <nav className="hidden md:flex space-x-4 items-center">

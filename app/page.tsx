@@ -40,7 +40,7 @@ export default function Home() {
 
       <header className="flex justify-between items-center p-6 text-sm bg-[#14532d] shadow-md">
         <Link href="/">
-          <img src="/logo (2).png" alt="Logo" width={50} height={50} />
+          <img src="/logo.png" alt="Logo" width={50} height={50} />
         </Link>
         <button
           className="md:hidden block focus:outline-none"
@@ -89,11 +89,11 @@ export default function Home() {
 
       <footer className="w-full bg-[#14532d] text-[#F4F0E6] border-t border-[#F4F0E6]/20 py-8 px-4 flex flex-col items-center gap-2 mt-12 shadow-lg">
         <div className="flex items-center gap-2 mb-2">
-          <img src="/logo (2).png" alt="Logo EcoIndústria" width={32} height={32} className="rounded" />
-          <span className="font-bold text-lg tracking-wide">EcoIndústria</span>
+          <img src="/logo.png" alt="Logo Tecnosfera" width={32} height={32} className="rounded" />
+          <span className="font-bold text-lg tracking-wide">Tecnosfera</span>
         </div>
         <div className="text-center text-xs sm:text-sm max-w-xl">
-          © 2025 EcoIndústria – Todos os direitos reservados.<br />
+          © 2025 Tecnosfera – Todos os direitos reservados.<br />
           Desenvolvido com <span className="text-green-300">Next.js</span> e <span className="text-green-300">React</span> | Projeto educacional sem fins lucrativos
         </div>
         <div className="flex gap-4 mt-2">
