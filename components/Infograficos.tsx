@@ -80,25 +80,25 @@ export default function Infograficos() {
   return (
     <section id="infograficos" className="bg-[#F4F0E6] py-16 px-4 min-h-screen">
       <h2 className="text-4xl font-bold text-center text-[#0A421C] mb-12 tracking-tight">Impactos Ambientais em Números</h2>
-      <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-6 sm:gap-4 max-w-7xl mx-auto">
         {data.map((item, index) => (
           <Card
             key={index}
-            className="w-full sm:w-[320px] md:w-[300px] lg:w-[260px] xl:w-[220px] cursor-pointer hover:shadow-2xl transition-transform hover:-translate-y-2 bg-white/80 border-2 border-[#0A421C]/10"
+            className="w-full sm:w-[280px] md:w-[300px] lg:w-[260px] xl:w-[220px] cursor-pointer hover:shadow-2xl transition-transform hover:-translate-y-2 bg-white/80 border-2 border-[#0A421C]/10"
             onClick={() => {
               setItemSelecionado(item);
               setOpen(true);
             }}
           >
-            <CardContent className="flex flex-col items-center text-center p-7">
+            <CardContent className="flex flex-col items-center text-center p-5 sm:p-4">
               <div
-                className="w-16 h-16 flex items-center justify-center rounded-full mb-4 shadow"
+                className="w-14 h-14 flex items-center justify-center rounded-full mb-3 shadow"
                 style={{ backgroundColor: `${item.cor}20` }}
               >
                 {item.icone}
               </div>
-              <h3 className="font-bold text-lg text-[#0A421C] mb-2">{item.titulo}</h3>
-              <p className="text-gray-700 text-sm mb-1">{item.descricao}</p>
+              <h3 className="font-bold text-base sm:text-sm text-[#0A421C] mb-2">{item.titulo}</h3>
+              <p className="text-gray-700 text-xs sm:text-[0.8rem] mb-1">{item.descricao}</p>
             </CardContent>
           </Card>
         ))}

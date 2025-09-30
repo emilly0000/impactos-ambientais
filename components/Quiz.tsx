@@ -89,12 +89,12 @@ function Quiz({ quiz }) {
 
         <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
           <h4 className="text-xl md:text-2xl font-bold text-center text-[#065732] mb-4">{q.question}</h4>
-          <div className="grid gap-4 md:grid-cols-1 mt-4">
+          <div className="grid gap-4 md:grid-cols-1 sm:grid-cols-1 mt-4">
             {q.options.map((opt, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSelect(idx)}
-                className={`w-full text-left py-4 px-5 rounded-2xl border-2 transition transform shadow-sm flex items-center justify-between ${selected === idx ? 'bg-[#065732] text-white scale-102' : 'bg-[#F4F0E6] text-[#0A421C] hover:bg-[#BEE5B0]'}`}
+                className={`w-full text-left py-4 px-5 rounded-2xl border-2 transition transform shadow-sm flex items-center justify-between ${selected === idx ? 'bg-[#065732] text-white scale-102' : 'bg-[#F4F0E6] text-[#0A421C] hover:bg-[#BEE5B0]'} sm:text-sm`}
                 aria-pressed={selected === idx}
               >
                 <span className="font-medium">{opt}</span>

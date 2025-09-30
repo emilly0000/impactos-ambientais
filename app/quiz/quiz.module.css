@@ -126,3 +126,46 @@
   background: #065732;
   transition: width 0.3s ease;
 }
+
+@media (max-width: 768px) {
+  .quizContainer {
+    padding: 10px;
+  }
+
+  .quizTitle {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .quizSubtitle {
+    font-size: 1.2rem;
+  }
+
+  .quizContent {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .quizTopic {
+    font-size: 1.5rem;
+  }
+
+  .questionText {
+    font-size: 1.2rem;
+  }
+
+  .optionButton {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .nextButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .progressBar {
+    height: 8px;
+  }
+}
