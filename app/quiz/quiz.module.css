@@ -75,15 +75,16 @@
 .optionButton {
   background: #CEF0C2;
   border: 2px solid #065732;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1rem;
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .optionButton:hover {
   background: #BEE5B0;
+  transform: scale(1.05);
 }
 
 .selectedOption {
@@ -95,18 +96,33 @@
   background: #0A421C;
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .nextButton:hover {
   background: #065732;
+  transform: scale(1.05);
 }
 
 .nextButton:disabled {
   background: #BEE5B0;
   cursor: not-allowed;
+}
+
+.progressBar {
+  height: 10px;
+  background: #EAF6EA;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress {
+  height: 100%;
+  background: #065732;
+  transition: width 0.3s ease;
 }

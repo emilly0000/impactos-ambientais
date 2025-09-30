@@ -152,8 +152,7 @@ export default function DashboardPage() {
 
       <section id="quiz" className="bg-[#CEF0C2] min-h-screen flex flex-col items-center pt-24 pb-16 px-4">
         <div className="max-w-4xl w-full mx-auto">
-          <h1 className="text-5xl font-bold mb-6 text-[#0A421C] text-center">❓ Quiz</h1>
-          <p className="text-lg text-[#0A421C]/90 text-center mb-10">Teste seus conhecimentos sobre os artigos!</p>
+
           <QuizTabs />
         </div>
       </section>
