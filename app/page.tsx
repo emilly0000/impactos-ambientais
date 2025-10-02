@@ -57,9 +57,27 @@ export default function Home() {
 
       {menuOpen && (
         <nav className="md:hidden bg-[#14532d] p-4 flex flex-col space-y-2">
-          <Link href="/login" onClick={() => setMenuOpen(false)}>Login</Link>
-          <Link href="/cadastro" onClick={() => setMenuOpen(false)}>Cadastro</Link>
-          <Link href="/sobre" onClick={() => setMenuOpen(false)}>Sobre</Link>
+          <Link
+            href="/login"
+            onClick={() => setMenuOpen(false)}
+            className="text-white font-semibold hover:underline"
+          >
+            Login
+          </Link>
+          <Link
+            href="/cadastro"
+            onClick={() => setMenuOpen(false)}
+            className="text-white font-semibold hover:underline"
+          >
+            Cadastro
+          </Link>
+          <Link
+            href="/sobre"
+            onClick={() => setMenuOpen(false)}
+            className="text-white font-semibold hover:underline"
+          >
+            Sobre
+          </Link>
         </nav>
       )}
 
