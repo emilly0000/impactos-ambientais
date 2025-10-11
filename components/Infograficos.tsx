@@ -5,9 +5,7 @@ import Image from "next/image";
 import { Card, CardContent } from "../components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../components/ui/dialog";
 import { Button } from "../components/ui/button";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { Download, Factory, Droplets, Trees, Trash2, BatteryCharging } from "lucide-react";
-import html2canvas from "html2canvas";
 
 const data = [
   {
@@ -16,7 +14,7 @@ const data = [
     detalhe:
       "A poluição atmosférica industrial é causada principalmente pela emissão de gases como CO₂, NOx e SO₂. Globalmente, o setor industrial é responsável por aproximadamente 21-30% das emissões totais de gases de efeito estufa.",
     cor: "#EF4444",
-    imagem: "/poluicaoAR.png",
+    imagem: "/info-Ar.jpeg",
     icone: <Factory className="w-8 h-8 text-red-600" />,
   },
   {
@@ -25,38 +23,34 @@ const data = [
     detalhe:
       "Indústrias liberam efluentes químicos e resíduos que comprometem rios, lagos e abastecimento de água. Dados oficiais mostram que menos da metade do esgoto urbano gerado é tratado de forma adequada, agravando os impactos à saúde humana e ao meio ambiente.",
     cor: "#3B82F6",
-    imagem: "/poluicaoAgua.png",
+    imagem: "/info-agua.jpeg",
     icone: <Droplets className="w-8 h-8 text-blue-600" />,
   },
   {
     titulo: "Desmatamento",
     descricao: "Expansão agroindustrial e exploração madeireira.",
-    detalhe: "O desmatamento no Brasil é majoritariamente impulsionado pela agropecuária, que responde por quase 96% da derrubada de vegetação nativa em 2022. A abertura de pastagens, cultivo agrícola, mineração e expansão urbana destroem biomas vitais, ameaçando biodiversidade, solo, clima e comunidades locais. Dados recentes mostram pequenas quedas, mas ainda há urgência em frear essa degradação.",
+    detalhe:
+      "O desmatamento no Brasil é majoritariamente impulsionado pela agropecuária, que responde por quase 96% da derrubada de vegetação nativa em 2022. A abertura de pastagens, cultivo agrícola, mineração e expansão urbana destroem biomas vitais, ameaçando biodiversidade, solo, clima e comunidades locais. Dados recentes mostram pequenas quedas, mas ainda há urgência em frear essa degradação.",
     cor: "#22C55E",
-    imagem: "/desmatamento.png",
+    imagem: "/info-desmatamento.jpg",
     icone: <Trees className="w-8 h-8 text-green-600" />,
   },
   {
     titulo: "Resíduos Sólidos",
     descricao: "Geração de plásticos, metais e lixo industrial.",
-    detalhe: "A indústria gera grandes quantidades de resíduos sólidos, muitos não biodegradáveis.",
+    detalhe:
+      "A indústria gera grandes quantidades de resíduos sólidos, muitos não biodegradáveis, como plásticos, metais e rejeitos químicos que causam contaminação do solo e da água.",
     cor: "#FACC15",
-    grafico: [
-      { name: "Plásticos", value: 50 },
-      { name: "Metais", value: 25 },
-      { name: "Outros", value: 25 },
-    ],
+    imagem: "/info-residuos.jpg",
     icone: <Trash2 className="w-8 h-8 text-yellow-600" />,
   },
   {
     titulo: "Consumo de Energia",
     descricao: "Uso excessivo de combustíveis fósseis na indústria.",
-    detalhe: "Fontes de energia não renováveis ainda dominam o consumo industrial em muitos países.",
+    detalhe:
+      "Fontes de energia não renováveis ainda dominam o consumo industrial em muitos países, aumentando a emissão de gases de efeito estufa e dificultando a transição para uma matriz energética limpa.",
     cor: "#EAB308",
-    grafico: [
-      { name: "Fontes fósseis", value: 80 },
-      { name: "Fontes renováveis", value: 20 },
-    ],
+    imagem: "/info-energia.jpg",
     icone: <BatteryCharging className="w-8 h-8 text-yellow-700" />,
   },
 ];
@@ -65,22 +59,34 @@ export default function Infograficos() {
   const [open, setOpen] = useState(false);
   const [itemSelecionado, setItemSelecionado] = useState<any>(null);
 
-  const handleDownload = () => {
-    const target = document.getElementById("grafico");
-    if (target) {
-      html2canvas(target).then((canvas) => {
-        const link = document.createElement("a");
-        link.download = "grafico.png";
-        link.href = canvas.toDataURL();
-        link.click();
-      });
-    }
+  // Função de download corrigida — sem cortes e sem html2canvas
+  const handleDownload = async (imgUrl: string, titulo: string) => {
+    if (!imgUrl) return;
+
+    const response = await fetch(imgUrl);
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${titulo?.replace(/\s+/g, "-").toLowerCase() || "infografico"}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
   };
 
   return (
-    <section id="infograficos" className="bg-[#F4F0E6] py-16 px-4 min-h-screen">
-      <h2 className="text-4xl font-bold text-center text-[#0A421C] mb-12 tracking-tight">Impactos Ambientais em Números</h2>
-      <div className="flex flex-wrap justify-center gap-6 sm:gap-4 max-w-7xl mx-auto">
+    <section
+  id="infograficos"
+  className="bg-[#F4F0E6] py-16 px-6 flex flex-col items-center justify-center min-h-[80vh]"
+>
+  <h2 className="text-4xl font-bold text-center text-[#0A421C] mb-10 tracking-tight">
+    Impactos Ambientais em Números
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full max-w-6xl">
+
         {data.map((item, index) => (
           <Card
             key={index}
@@ -97,42 +103,46 @@ export default function Infograficos() {
               >
                 {item.icone}
               </div>
-              <h3 className="font-bold text-base sm:text-sm text-[#0A421C] mb-2">{item.titulo}</h3>
-              <p className="text-gray-700 text-xs sm:text-[0.8rem] mb-1">{item.descricao}</p>
+              <h3 className="font-bold text-base sm:text-sm text-[#0A421C] mb-2">
+                {item.titulo}
+              </h3>
+              <p className="text-gray-700 text-xs sm:text-[0.8rem] mb-1">
+                {item.descricao}
+              </p>
             </CardContent>
           </Card>
         ))}
       </div>
 
+      {/* Modal (dialog) com imagem e botão de download */}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-w-lg">
           <DialogHeader>
             <DialogTitle>{itemSelecionado?.titulo}</DialogTitle>
           </DialogHeader>
-          <p className="text-gray-700 mt-2 mb-4 text-base leading-relaxed">{itemSelecionado?.detalhe}</p>
-          <div id="grafico" className="mt-4 flex justify-center">
-            {itemSelecionado?.grafico ? (
-              <div className="h-64 w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={itemSelecionado?.grafico}
-                      dataKey="value"
-                      outerRadius={100}
-                      label
-                    >
-                      {itemSelecionado?.grafico?.map((entry: any, index: number) => (
-                        <Cell key={`cell-${index}`} fill={itemSelecionado?.cor} />
-                      ))}
-                    </Pie>
-                  </PieChart>
-                </ResponsiveContainer>
-              </div>
-            ) : (
-              <div className="h-64 w-full flex items-center justify-center text-gray-400 italic">Adicione um infográfico aqui</div>
-            )}
-          </div>
-          <Button className="mt-6 flex items-center gap-2" onClick={handleDownload}>
+
+          <p className="text-gray-700 mt-2 mb-4 text-base leading-relaxed">
+            {itemSelecionado?.detalhe}
+          </p>
+
+          {itemSelecionado?.imagem && (
+            <div className="mt-4 flex justify-center">
+              <Image
+                src={itemSelecionado.imagem}
+                alt={itemSelecionado.titulo}
+                width={500}
+                height={400}
+                className="rounded-lg shadow-md max-w-full h-auto"
+              />
+            </div>
+          )}
+
+          <Button
+            className="mt-6 flex items-center gap-2"
+            onClick={() =>
+              handleDownload(itemSelecionado?.imagem, itemSelecionado?.titulo)
+            }
+          >
             <Download size={16} /> Baixar Infográfico
           </Button>
         </DialogContent>
