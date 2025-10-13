@@ -36,26 +36,35 @@ async function sendResetEmail(to: string, token: string) {
 export async function POST(req: Request) {
   try {
     const { email } = await req.json();
-    if (!email) return NextResponse.json({ ok: false }, { status: 400 });
+    if (!email) {
+      return NextResponse.json({ ok: false, message: "Email não fornecido." }, { status: 400 });
+    }
 
     const user = await prisma.user.findUnique({ where: { email } });
-    if (!user) return NextResponse.json({ ok: true });
+    if (!user) {
+      return NextResponse.json({ ok: true, message: "Se o email existir, um link será enviado." });
+    }
 
-    const token = crypto.randomBytes(TOKEN_BYTES).toString("hex");
-    const tokenHash = await bcrypt.hash(token, 10);
-    const expiresAt = new Date(Date.now() + TOKEN_EXPIRATION_MINUTES * 60 * 1000);
+    try {
+      const token = crypto.randomBytes(TOKEN_BYTES).toString("hex");
+      const tokenHash = await bcrypt.hash(token, 10);
+      const expiresAt = new Date(Date.now() + TOKEN_EXPIRATION_MINUTES * 60 * 1000);
 
-    await (prisma as any).passwordResetToken.create({
-      data: {
-        userId: user.id,
-        tokenHash,
-        expiresAt,
-      },
-    });
+      await prisma.passwordResetToken.create({
+        data: {
+          userId: user.id,
+          tokenHash,
+          expiresAt,
+        },
+      });
 
-    await sendResetEmail(email, token);
+      await sendResetEmail(email, token);
 
-    return NextResponse.json({ ok: true });
+      return NextResponse.json({ ok: true, message: "Link de recuperação enviado com sucesso." });
+    } catch (error) {
+      console.error("Erro ao processar recuperação de senha:", error);
+      return NextResponse.json({ ok: false, message: "Erro interno ao processar solicitação." }, { status: 500 });
+    }
   } catch (err) {
     console.error("forgot-password error:", err);
     return NextResponse.json({ ok: false }, { status: 500 });
