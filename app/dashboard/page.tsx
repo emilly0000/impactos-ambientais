@@ -163,7 +163,7 @@ export default function DashboardPage() {
       {/* ARTIGOS */}
       <section id="artigos" className="bg-[#EAF6EA] min-h-screen flex flex-col items-center pt-24 pb-16 px-4">
         <div className="max-w-4xl w-full mx-auto">
-          <h1 className="text-5xl font-bold mb-6 text-[#0A421C] text-center">📚 Artigos Científicos</h1>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A421C] text-center">📚 Artigos Científicos</h1>
           <p className="text-lg text-[#0A421C]/90 text-center mb-10">Explore estudos relevantes sobre sustentabilidade e indústria.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -232,9 +232,10 @@ export default function DashboardPage() {
 
         {/* CONTEÚDO */}
         <div className="relative z-20 max-w-4xl w-full mx-auto">
-          <h1 className="text-5xl font-bold mb-6 text-[#0A421C] text-center">
-            💡 Dicas
-          </h1>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-[#0A421C] text-center">
+  💡 Dicas
+</h1>
+
 
           <p className="font-bold text-lg text-[#0A421C ]/90 text-center mb-10">
             Confira dicas práticas para adotar hábitos mais sustentáveis no seu dia a dia industrial e pessoal.

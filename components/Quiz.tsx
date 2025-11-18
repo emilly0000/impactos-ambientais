@@ -84,7 +84,7 @@ function Quiz({ quiz }) {
           <div className="w-full bg-[#EAF6EA] rounded-full h-3 overflow-hidden shadow-inner">
             <div className="h-full bg-[#065732] transition-all" style={{ width: `${progress}%` }} />
           </div>
-          <div className="text-sm text-right text-[#0A421C]/80 mt-1">Pergunta {step + 1} de {total}</div>
+          <div className="text-sm text-right text-[#fff]/80 mt-1">Pergunta {step + 1} de {total}</div>
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">

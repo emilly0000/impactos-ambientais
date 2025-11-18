@@ -81,9 +81,9 @@ export default function Infograficos() {
   id="infograficos"
   className="bg-[#EAF6EA] py-16 px-6 flex flex-col items-center justify-center min-h-[80vh]"
 >
-  <h2 className="text-4xl font-bold text-center text-[#0A421C] mb-10 tracking-tight">
+  <h1  className="text-3xl sm:text-4xl lg:text-4xl font-bold text-[#0A421C] text-center mb-12">
     Impactos Ambientais em Números
-  </h2>
+  </h1>
 
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full max-w-6xl">
 
