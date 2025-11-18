@@ -12,7 +12,7 @@ const data = [
     titulo: "Poluição do Ar",
     descricao: "Emissões de gases tóxicos e efeito estufa gerados pela indústria.",
     detalhe:
-      "A poluição atmosférica industrial é causada principalmente pela emissão de gases como CO₂, NOx e SO₂. Globalmente, o setor industrial é responsável por aproximadamente 21-30% das emissões totais de gases de efeito estufa.",
+      "A poluição atmosférica industrial é causada principalmente pela emissão de gases como CO₂, NOₓ e SO₂. A nível global, o setor industrial é responsável por aproximadamente 21–30% das emissões totais de gases de efeito estufa, considerando emissões diretas e indiretas.",
     cor: "#EF4444",
     imagem: "/info-Ar.jpeg",
     icone: <Factory className="w-8 h-8 text-red-600" />,
@@ -21,7 +21,7 @@ const data = [
     titulo: "Poluição da Água",
     descricao: "Descarte de efluentes industriais em rios e mares.",
     detalhe:
-      "Indústrias liberam efluentes químicos e resíduos que comprometem rios, lagos e abastecimento de água. Dados oficiais mostram que menos da metade do esgoto urbano gerado é tratado de forma adequada, agravando os impactos à saúde humana e ao meio ambiente.",
+      "Indústrias liberam efluentes químicos e resíduos que comprometem rios, lagos e abastecimento de água. No Brasil, menos da metade do esgoto urbano gerado é tratado de forma adequada, agravando os impactos à saúde humana e ao meio ambiente.",
     cor: "#3B82F6",
     imagem: "/info-agua.jpeg",
     icone: <Droplets className="w-8 h-8 text-blue-600" />,
@@ -30,7 +30,7 @@ const data = [
     titulo: "Desmatamento",
     descricao: "Expansão agroindustrial e exploração madeireira.",
     detalhe:
-      "O desmatamento no Brasil é majoritariamente impulsionado pela agropecuária, que responde por quase 96% da derrubada de vegetação nativa em 2022. A abertura de pastagens, cultivo agrícola, mineração e expansão urbana destroem biomas vitais, ameaçando biodiversidade, solo, clima e comunidades locais. Dados recentes mostram pequenas quedas, mas ainda há urgência em frear essa degradação.",
+      "No Brasil, grande parte do desmatamento é impulsionada pela agropecuária: estudos recentes indicam que cerca de 97% da derrubada de vegetação nativa nos últimos anos se deve à expansão agropecuária (pastagens, cultivo agrícola). Esse desmatamento para abrir pastagens, cultivo agrícola, mineração e expansão urbana destrói biomas vitais, ameaçando biodiversidade, solo, clima e comunidades locais.",
     cor: "#22C55E",
     imagem: "/info-desmatamento.jpg",
     icone: <Trees className="w-8 h-8 text-green-600" />,
@@ -39,7 +39,7 @@ const data = [
     titulo: "Resíduos Sólidos",
     descricao: "Geração de plásticos, metais e lixo industrial.",
     detalhe:
-      "A indústria gera grandes quantidades de resíduos sólidos, muitos não biodegradáveis, como plásticos, metais e rejeitos químicos que causam contaminação do solo e da água.",
+      "A indústria gera grandes quantidades de resíduos sólidos, muitos não biodegradáveis — como plásticos, metais e rejeitos químicos — que causam contaminação do solo e da água em escala global, além de afetar regiões específicas como o Brasil.",
     cor: "#FACC15",
     imagem: "/info-residuos.jpg",
     icone: <Trash2 className="w-8 h-8 text-yellow-600" />,
@@ -48,7 +48,7 @@ const data = [
     titulo: "Consumo de Energia",
     descricao: "Uso excessivo de combustíveis fósseis na indústria.",
     detalhe:
-      "Fontes de energia não renováveis ainda dominam o consumo industrial em muitos países, aumentando a emissão de gases de efeito estufa e dificultando a transição para uma matriz energética limpa.",
+      "Fontes de energia não renováveis ainda dominam o consumo industrial em muitos países, o que aumenta a emissão de gases de efeito estufa e dificulta a transição para uma matriz energética mais limpa.",
     cor: "#EAB308",
     imagem: "/info-energia.jpg",
     icone: <BatteryCharging className="w-8 h-8 text-yellow-700" />,
@@ -79,7 +79,7 @@ export default function Infograficos() {
   return (
     <section
   id="infograficos"
-  className="bg-[#F4F0E6] py-16 px-6 flex flex-col items-center justify-center min-h-[80vh]"
+  className="bg-[#EAF6EA] py-16 px-6 flex flex-col items-center justify-center min-h-[80vh]"
 >
   <h2 className="text-4xl font-bold text-center text-[#0A421C] mb-10 tracking-tight">
     Impactos Ambientais em Números

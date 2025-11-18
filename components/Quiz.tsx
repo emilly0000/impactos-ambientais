@@ -12,7 +12,7 @@ function QuizTabs() {
   const [activeQuiz, setActiveQuiz] = useState(0);
 
   return (
-    <div>
+    <div className="bg-transparent">
       <div className="mb-6 flex justify-center">
         <div className="bg-white/90 px-6 py-4 rounded-xl shadow-md flex items-center gap-4">
           <span className="text-3xl">🎯</span>
