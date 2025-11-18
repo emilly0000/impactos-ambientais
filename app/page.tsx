@@ -46,7 +46,7 @@ export default function Home() {
           className="md:hidden block focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className="text-2xl">☰</span>
+          <span className="text-white 2xl">☰</span>
         </button>
         <nav className="hidden md:flex space-x-4">
           <Link href="/login" className="text-white font-semibold hover:underline">Login</Link>
