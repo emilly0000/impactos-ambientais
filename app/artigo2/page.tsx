@@ -59,7 +59,7 @@ export default function Artigo2Page() {
             <p className="text-lg text-[#0A421C]/90">Desmatamento e erosão.</p>
           </div>
           <div className="mt-6 flex flex-col items-center space-y-4 w-full">
-            <a href="https://www.imasul.ms.gov.br/wp-content/uploads/2017/12/Uso-de-%C3%81gua-no-Setor-Industrial-Brasileiro.pdf" target="_blank" rel="noopener" className="block text-center bg-[#0A421C] text-white py-3 px-8 rounded-lg font-semibold hover:bg-[#065732] transition">Baixar artigo completo (PDF)</a>
+            <a href="https://www.confea.org.br/midias/uploads-imce/Contecc2021/Civil/OS%20IMPACTOS%20AMBIENTAIS%20CAUSADOS%20PELA%20ATIVIDADE%20MINERADORA.pdf" target="_blank" rel="noopener" className="block text-center bg-[#0A421C] text-white py-3 px-8 rounded-lg font-semibold hover:bg-[#065732] transition">Baixar artigo completo (PDF)</a>
             <Link href="/dashboard#artigos" className="block text-center bg-[#EAF6EA] text-[#0A421C] py-3 px-8 rounded-lg font-semibold border border-[#0A421C] hover:bg-[#CDE5CD] transition">Voltar</Link>
           </div>
         </div>
