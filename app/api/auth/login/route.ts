@@ -1,18 +1,44 @@
-// pages/api/login.ts
+import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).end();
+const prisma = new PrismaClient();
 
-  const { email, senha } = req.body;
+export async function POST(req: Request) {
+  try {
+    const { email, senha } = await req.json();
 
-  const user = await prisma.user.findUnique({ where: { email } });
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
 
-  if (!user) return res.status(401).json({ message: "Email ou senha incorretos" });
+    if (!user) {
+      return NextResponse.json(
+        { success: false, message: "Email ou senha incorretos" },
+        { status: 401 }
+      );
+    }
 
-  const match = await bcrypt.compare(senha, user.password);
-  if (!match) return res.status(401).json({ message: "Email ou senha incorretos" });
+    const match = await bcrypt.compare(senha, user.password);
+    if (!match) {
+      return NextResponse.json(
+        { success: false, message: "Email ou senha incorretos" },
+        { status: 401 }
+      );
+    }
 
-  return res.status(200).json({ id: user.id, name: user.name, email: user.email });
+    return NextResponse.json({
+      success: true,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, message: "Erro interno no servidor" },
+      { status: 500 }
+    );
+  }
 }
