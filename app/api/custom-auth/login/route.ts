@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
   try {
-    const { email, senha } = await req.json();
+    const { email, password } = await req.json(); // ← AGORA ALINHADO COM O MOBILE
 
     const user = await prisma.user.findUnique({
       where: { email },
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const match = await bcrypt.compare(senha, user.password);
+    const match = await bcrypt.compare(password, user.password); // ← CORRIGIDO
     if (!match) {
       return NextResponse.json(
         { success: false, message: "Email ou senha incorretos" },
@@ -36,6 +36,7 @@ export async function POST(req: Request) {
       },
     });
   } catch (error) {
+    console.error("login error:", error);
     return NextResponse.json(
       { success: false, message: "Erro interno no servidor" },
       { status: 500 }
